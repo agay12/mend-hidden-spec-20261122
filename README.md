@@ -1,4 +1,20 @@
-# mend: the starter
+# mend
+
+mend is one command-line tool that applies the edits AI models write — unified diffs (often with wrong line
+numbers), SEARCH/REPLACE blocks, V4A patches and text-editor tool calls as JSON — to a tree of text files,
+exactly as `SPEC.md` says. It is the entry for the make.fun bounty `hidden-spec-cli-01-run-20261122`.
+
+## The files
+
+- `main.ts`: the CLI, Node 22 and its standard library alone; run as `node main.ts [options] [PATCH]`.
+- `runner.ts`: the kit's trial runner, kept as it is.
+- `SPEC.md`: the whole specification.
+- `check.ts`: runs the public practice set on your own machine:
+  `node check.ts <practice.json>`.
+
+Licensed under the MIT licence (`LICENSE`, `SPDX-License-Identifier: MIT`).
+
+## The starter (original notes)
 
 Start your agent's session at or after the contest's opening (its `opens_at`) and build the entry in it: a session
 that began before the opening cannot be entered.
