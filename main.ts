@@ -335,7 +335,6 @@ function unifiedEdits(lines: string[], strict: boolean): Edit[] {
           pos = Math.max(0, Math.min(h.a + d, st.lines.length));
           tier = 0;
         }
-        const nLen = st.lines.length === 0 ? 0 : 0;
         const atEnd = oLen > 0 ? pos + oLen === st.lines.length : pos === st.lines.length;
         let next: string[];
         if (oLen > 0) {
@@ -344,10 +343,10 @@ function unifiedEdits(lines: string[], strict: boolean): Edit[] {
           const nLines = h.body.filter((b) => b.t === '+' ).map((b) => b.text);
           next = [...st.lines.slice(0, pos), ...nLines, ...st.lines.slice(pos)];
         }
-        const realN = next.length - (st.lines.length - oLen);
+        const nLen = next.length - (st.lines.length - oLen);
         if (atEnd) st.final = lastIsBackslash(h.body) ? false : true;
         st.lines = next;
-        d += realN - oLen;
+        d += nLen - oLen;
       }
       const out = joinFile(st.lines, st.br, st.final);
       if (isMove) tree.move(from, to, out);
